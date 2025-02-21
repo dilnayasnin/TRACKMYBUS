@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bus Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #1f3b63; /* Navy Blue */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background: #1f3b63; /* Navy Blue */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background: #15294a; /* Darker Navy */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Bus Details</h2>
+        <form method="post" > 
+            {% csrf_token %}
+            <label for="bus_name">Bus Name:</label>
+            <input type="text" id="bus_name" name="bus_name" required>
+            
+            <label for="bus_name">Bus Number:</label>
+            <input type="text" id="bus_Number" name="bus_number" required>
+            
+            <input type="submit" value="Add Bus">
+        </form>
+    </div>
+</body>
+</html>

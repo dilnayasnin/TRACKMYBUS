@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Block/Unblock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #1f3b63; /* Deep Blue */
+            color: #fff;
+            padding-top: 20px;
+            min-height: 70px;
+            border-bottom: #ffcc00 3px solid;
+            text-align: center;
+        }
+        .main-content {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #1f3b63;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1f3b63; /* Dark Blue */
+            color: white;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .action-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            color: white;
+        }
+        .block-btn {
+            background-color: #dc3545; /* Red */
+        }
+        .unblock-btn {
+            background-color: #28a745; /* Green */
+        }
+        .action-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bus Block/Unblock</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <h2>Bus Block/Unblock</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bus Number</th>
+                        <th>Bus Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bus in data %}
+                    <tr>
+                        <td>{{ bus.number }}</td>
+                        <td>{{ bus.name }}</td>
+                        <td>
+                            {% if bus.status == 'blocked' %}
+                            <a href="/unblockbus/{{ bus.id }}" class="action-btn unblock-btn">Unblock</a>
+                            {% else %}
+                            <a href="/blockbus/{{ bus.id }}" class="action-btn block-btn">Block</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

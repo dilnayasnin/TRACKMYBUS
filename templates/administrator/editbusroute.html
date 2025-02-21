@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Route</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            color: black;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #34495E; /* Dark navy */
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #34495E; /* Dark navy */
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 15px 0 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background: #f2f2f2;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #34495E; /* Dark navy */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#"><i class="fas fa-bus"></i> Bus Routes</a>
+    </nav>
+    <div class="form-container">
+        <h2>Find Your Bus Route</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="source">Source:</label>
+            <input type="text" id="source" name="source" value="{{data.source}}" required>
+            
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" value="{{data.destination}}"required>
+            
+            <input type="submit" value="Submit" class="btn">
+        </form>
+    </div>
+</body>
+</html>

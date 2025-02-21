@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Stop Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            border: 3px solid #34495E; /* Navy Blue Border */
+        }
+
+        h2 {
+            color: #34495E; /* Navy Blue */
+            margin-bottom: 20px;
+        }
+
+        .btn-add {
+            background: #28a745; /* Green */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .btn-add:hover {
+            background: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #2c3e50; /* Dark Navy */
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            text-align: left;
+            background: #f9f9f9;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .btn-edit {
+            background: #f39c12; /* Gold */
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #d68910;
+        }
+
+        .btn-delete {
+            background: #e74c3c; /* Red */
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bus Stop Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus Stop ID</th>
+                    <th>Bus Stop Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.stop_name }}</td>
+                </tr>
+                {% endfor %}
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

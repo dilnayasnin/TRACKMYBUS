@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMyBus - Owner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar h2 {
+            font-size: 22px;
+            text-align: center;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #34495e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                text-align: center;
+            }
+            .dashboard {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Owner Panel</h2>
+        <a href="#">Dashboard</a>
+        <a href="/bus">Add Bus</a>
+        <a href="/viewbus">View Buses</a>
+        <a href="/viewbusroute">View Bus Routes</a>
+        <a href="/viewstopdetails">View Stops</a>
+        <a href="/allocatebus">Allocate Bus</a>
+        <a href="/trackbus">Track Bus</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to TrackMyBus Owner Panel</h1>
+        <div class="dashboard">
+            <div class="card">
+                <h2>Dashboard</h2>
+                <p>Overview of bus operations.</p>
+            </div>
+            <div class="card">
+                <h2>Add Bus</h2>
+                <p>Register new buses.</p>
+            </div>
+            <div class="card">
+                <h2>View Buses</h2>
+                <p>Check your fleet.</p>
+            </div>
+            <div class="card">
+                <h2>View Bus Routes</h2>
+                <p>Monitor assigned routes.</p>
+            </div>
+            <div class="card">
+                <h2>View Stops</h2>
+                <p>Manage bus stop locations.</p>
+            </div>
+            <div class="card">
+                <h2>Allocate Bus</h2>
+                <p>Assign buses to routes.</p>
+            </div>
+            <div class="card">
+                <h2>Track Bus</h2>
+                <p>Live bus tracking.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

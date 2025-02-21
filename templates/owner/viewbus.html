@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bus Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #1f3b63; /* Navy Blue */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+        th {
+            background: #1f3b63; /* Navy Blue */
+            color: #fff;
+        }
+        td {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>View Bus</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus Name</th>
+                    <th>Bus Number</th>
+                    <th>        </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.bus_name}}</td>
+                    <td>{{i.bus_number}}</td>
+                    <td>
+                        <td>
+                            <a href="/editbus/{{ i.id }}"onclick="return confirm('Are you sure you want to edit')"><button class="btn btn-edit">Edit</button></a>
+                            <a href="/deletebus/{{ i.id }}" onclick="return confirm('Are sure you want to delete')"><button class="btn btn-delete">Delete</button></a>
+                        </td>
+                    </td>
+                </tr>
+                {% endfor %}
+ 
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

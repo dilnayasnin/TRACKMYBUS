@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View and Approve Owners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #1f3b63; /* Navy Blue */
+            color: #fff;
+            padding-top: 20px;
+            min-height: 60px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+        nav li {
+            display: inline;
+            padding: 0 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .owner {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .approve-btn {
+            background: #1f3b63; /* Navy Blue */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .approve-btn:hover {
+            background: #15294a; /* Darker Navy */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>View and Approve Owners</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <h2 style="color: #1f3b63;">View and Approve Owners</h2>
+            {% for owner in data %}
+            <div class="owner">
+                <h3>Owner Name: {{ owner.name }}</h3>
+                <p>Email: {{ owner.email }}</p>
+                <a href="{% url 'approve' owner.id %}" class="approve-btn">Approve</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

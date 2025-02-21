@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bus Stop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: white;
+            color: black;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #34495E; /* Dark navy */
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            background: #f2f2f2;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #34495E; /* Dark navy */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Bus Stop</h2>
+        <form method="post" >
+            {% csrf_token %}
+            <label for="bus-stop-1">Select route :</label>
+            <select id="bus-stop" name="route_id">
+                <option value="">select route</option>
+                {% for i in data %}
+                    <option value="{{i.id}}">{{i.source}} - {{i.destination}}</option>
+                {% endfor %}
+            </select>
+            <label for="bus-stop-1">Bus Stop :</label>
+            <input type="text" id="bus-stop" name="stop_name" required>
+            <button type="submit" class="btn">Save</button>
+        </form>
+    </div>
+</body>
+</html>

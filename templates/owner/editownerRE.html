@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Owner Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: black;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], 
+        input[type="password"],
+        input[type="number"], 
+        input[type="email"], 
+        input[type="tel"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            background: #f2f2f2;
+        }
+        .gender-group {
+            text-align: left;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .gender-group label {
+            font-weight: normal;
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        input[type="radio"] {
+            margin-left: 10px;
+        }
+        input[type="submit"] {
+            width: 80%;
+            padding: 12px;
+            background: #34495E;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Owner Details</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" value="{{ data.name }}" required>
+            <div class="gender-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" {% if data.gender == 'male' %}checked{% endif %}>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" {% if data.gender == 'female' %}checked{% endif %}>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other" {% if data.gender == 'other' %}checked{% endif %}>
+                <label for="other">Other</label>
+            </div>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ data.email }}" required>
+            
+            <label for="contact">Phone Number:</label>
+            <input type="tel" id="contact" name="contact" value="{{ data.contact }}" required>
+            
+ 
+            
+            <label for="address">  Address:</label>
+            <input type="text" id="address" name="address" value="{{ data.address }}" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="{{ data.password }}" required>>
+            
+            <input type="submit" value="Update Details">
+        </form>
+    </div>
+</body>
+</html>
