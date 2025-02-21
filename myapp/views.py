@@ -140,7 +140,22 @@ class bus(View):
 class viewbus(View):
     def get(self, request):
         c = bus_model.objects.all()   
-        return render(request, 'administrator/viewbus.html', {'data': c})
+        return render(request, 'owner/viewbus.html', {'data': c})
+class editbus(View):
+    def get(self, request, id):
+        c = bus_model.objects.get(id=id)
+        return render(request, 'owner/editbus.html', {'data': c})
+    def post(self, request, id):
+        obj = bus_model.objects.get(id=id)
+        c = bus_form(request.POST, instance=obj)
+        if c.is_valid():
+            c.save()
+            return HttpResponse('''<script>alert("Bus updated successfully");window.location.href="/viewbus"</script>''')
+class deletebus(View):
+    def get(self, request, id):
+        c = bus_model.objects.get(id=id)
+        c.delete()
+        return HttpResponse('''<script>alert("Bus deleted successfully");window.location.href="/viewbus"</script>''')            
 class viewbusdetails(View):
     def get(self, request):
         return render(request, 'administrator/viewbusdetails.html',)

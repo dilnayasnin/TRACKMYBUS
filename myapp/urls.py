@@ -35,8 +35,9 @@ urlpatterns = [
     path('rejectowner/<int:id>',Reject_Owner.as_view(),name='rejectowner'),
     # path('viewbusblockunblock', viewbusblockunblock.as_view(), name='viewbusblockunblock'),
     path('blockbus/<int:id>', blockbus.as_view(), name='blockbus'),
-    path('unblockbus/<int:id>', unblockbus.as_view(), name='unblockbus'),  # Corrected class name
-       
+    path('unblockbus/<int:id>', unblockbus.as_view(), name='unblockbus'),
+    path('deletebus/<int:id>', deletebus.as_view(), name='deletebus'),
+    path('editbus/<int:id>', editbus.as_view(), name='editbus'),   
     
 ]
 
