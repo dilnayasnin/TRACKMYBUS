@@ -38,7 +38,7 @@
             font-weight: bold;
             color: #333;
         }
-        input[type="text"] {
+        input[type="text"], select {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -65,6 +65,14 @@
         <h2>Add Bus Details</h2>
         <form method="post" > 
             {% csrf_token %}
+            <input type="text" value="{{data.id}}" name="OWNERID" readonly>
+            <label>Bus Route:</label>
+            <select  name="route_id" required>
+                <option value="">Select route</option>
+                {% for i in data1 %}
+                <option value="{{i.id}}">{{i.source}} - {{i.destination}}</option>
+                {% endfor %}
+            </select>
             <label for="bus_name">Bus Name:</label>
             <input type="text" id="bus_name" name="bus_name" required>
             

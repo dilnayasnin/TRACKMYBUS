@@ -26,7 +26,7 @@ class  stop_form(ModelForm):
 class  bus_form(ModelForm):
     class Meta:
         model = bus_model
-        fields = ['bus_name', 'bus_number']
+        fields = ['bus_name', 'bus_number', 'OWNERID', 'route_id']
 
 class  feedback_form(ModelForm):
     class Meta:

@@ -131,7 +131,9 @@ class approve(View):
         
 class bus(View):
     def get(self, request):
-        return render(request, 'owner/bus.html')
+        c = login_model.objects.get(id=request.session['loginid'])
+        d = busroute_model.objects.all()
+        return render(request, 'owner/bus.html', {'data': c, 'data1': d})
     def post(self,request):
         c=bus_form(request.POST)
         if c.is_valid():
@@ -139,7 +141,7 @@ class bus(View):
             return HttpResponse('''<script>alert("Bus added successfully");window.location.href="/viewbus"</script>''')
 class viewbus(View):
     def get(self, request):
-        c = bus_model.objects.all()   
+        c = bus_model.objects.filter(OWNERID=request.session['loginid']) 
         return render(request, 'owner/viewbus.html', {'data': c})
 class editbus(View):
     def get(self, request, id):
